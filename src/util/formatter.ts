@@ -25,8 +25,15 @@ export const FormatToWhatsappJid = (number: string | null | undefined) : string 
     // format to standard number with country code first
     number = FormatStandardPhoneNumber(number);
     // add whatsapp jid
-    if (!number.endsWith('@s.whatsapp.net')){
-        number = number + '@s.whatsapp.net';
+    if (number.startsWith('62')){
+        if (!number.endsWith('@s.whatsapp.net')){
+            number = number + '@s.whatsapp.net';
+        }
+    } 
+    else{
+        if (!number.endsWith('@g.us')){
+            number = number + '@g.us';
+        }
     }
     return number;
 }
